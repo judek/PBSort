@@ -1,0 +1,48 @@
+﻿<SortDef>
+  <InputFileName>C:\Users\judek\Desktop\RunExample\LargeTest1MM.dat.txt</InputFileName>
+  <OutputFileName>C:\Users\judek\Desktop\RunExample\LargeTest1MM.dat.Sorted.txt</OutputFileName>
+
+  
+  <CharacterSet>ASCII</CharacterSet>    <!--ASCII, Unicode (currently the only char set supported is 8 bit US ASCII )-->
+
+  <RecordType>FixedLength</RecordType>  <!--CSV, FixedLength (CSV sorting has not yet been implemented)-->
+  <RecordLength>298</RecordLength> <!--Number characters or byte each record is excluding and termination-->
+  <Termination>CRLF</Termination><!--None, CRLF -->
+  
+  
+  <!--Sort definition is a description of how the sort should be done. Which sections of the record should the sort be based
+  on and in which order-->
+  
+  <!--For example, the follow sort definition string implies the following sort criterias
+  
+  Sort first by character position 193 and the 8 characters after that.
+  Then sort by character position 30 and the 30 characters after that.
+  Then sort by character position 125 and the 20 characters after that.
+  
+  A sort criteria consists of a start postion and a length.  Each sort criteria are separated by a colon ":" There is no limit
+  to the number of sort criterias one can define.
+  
+  For best performance keep the length of each sort criteria as short as possible.  For example consider a field that
+  started and postion 100 and length is 50. If you wanted to sort on that field you could write 100,50. However if you
+  knew that data existed only in the first 20 characters, it would be better to write 100,20.
+  
+  
+  <SortDefinition>193:8,30:30,125:20</SortDefinition>
+  
+  NOTE: for best performance
+  
+  -->
+  
+  <SortDefinition>193:8,30:30,125:20</SortDefinition>
+  
+  
+  <!--Memory cap is the size in bytes how much to read and sort at a time.  The more it can read the faster it can sort very large files-->
+  <!--Ideally this value should not be specifed and PBSort will automatically determine the best memory cap for system at run time-->
+    
+  
+  <!--Use this section carefully as it will effect performance-->
+  <!--In some cases you may want to limit the memory used by ShartSort so it will not burden other programs running on this system-->
+  <!--<MemoryCap>0</MemoryCap>-->
+  
+  
+</SortDef>
